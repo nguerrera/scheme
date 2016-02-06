@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C90C90AE-65C2-4C88-A129-F7BB219DA9E1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Scheme</RootNamespace>
+    <AssemblyName>Scheme</AssemblyName>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;B</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include=".gitattributes" />
+    <None Include="app.config" />
+    <Compile Include="Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="AST\Assignment.cs" />
+    <Compile Include="AST\Conditional.cs" />
+    <Compile Include="AST\Expression.cs" />
+    <Compile Include="AST\Formals.cs" />
+    <Compile Include="AST\Lambda.cs" />
+    <Compile Include="AST\Literal.cs" />
+    <Compile Include="AST\NodeType.cs" />
+    <Compile Include="AST\ProcedureCall.cs" />
+    <Compile Include="AST\Sequence.cs" />
+    <Compile Include="AST\Variable.cs" />
+    <Compile Include="Parser\InvalidSyntaxException.cs" />
+    <Compile Include="Parser\IToken.cs" />
+    <Compile Include="Parser\Parser.cs" />
+    <Compile Include="Parser\Reader.cs" />
+    <Compile Include="Parser\Scanner.cs" />
+    <Compile Include="Parser\Token.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REPL\ConsoleTextReader.cs" />
+    <Compile Include="REPL\ReadEvalPrintLoop.cs" />
+    <Compile Include="Runtime\Closure.cs" />
+    <Compile Include="Runtime\Continuation.cs" />
+    <Compile Include="Runtime\Datum.cs" />
+    <Compile Include="Runtime\Interpreter.cs" />
+    <Compile Include="Runtime\Pair.cs" />
+    <Compile Include="Runtime\PairEnumerator.cs" />
+    <Compile Include="Runtime\Primitive.cs" />
+    <Compile Include="Runtime\Primitives.cs" />
+    <Compile Include="Runtime\Procedure.cs" />
+    <Compile Include="Runtime\SchemeBoolean.cs" />
+    <Compile Include="Runtime\SchemeChar.cs" />
+    <Compile Include="Runtime\SchemeEnvironment.cs" />
+    <Compile Include="Runtime\SchemeNull.cs" />
+    <Compile Include="Runtime\SchemeNumber.cs" />
+    <Compile Include="Runtime\SchemeObject.cs" />
+    <Compile Include="Runtime\SchemeString.cs" />
+    <Compile Include="Runtime\SchemeVoid.cs" />
+    <Compile Include="Runtime\Symbol.cs" />
+    <Compile Include="Runtime\Vector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Strings.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
