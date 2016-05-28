@@ -10,6 +10,7 @@
 
 namespace Scheme {
     using System;
+    using System.Reflection;
     
     
     /// <summary>
@@ -39,7 +40,7 @@ namespace Scheme {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Scheme.Strings", typeof(Strings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Scheme.Strings", typeof(Strings).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

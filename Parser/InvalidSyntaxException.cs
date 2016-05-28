@@ -3,11 +3,9 @@
 
 using System;
 using System.Globalization;
-using System.Runtime.Serialization;
 
 namespace Scheme
 {
-    [Serializable]
     public sealed class InvalidSyntaxException : Exception
     {
         public InvalidSyntaxException()
@@ -22,11 +20,6 @@ namespace Scheme
 
         public InvalidSyntaxException(string message, Exception inner)
             : base(message, inner)
-        {
-        }
-
-        private InvalidSyntaxException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
         {
         }
 
